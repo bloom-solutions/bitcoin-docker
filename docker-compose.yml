@@ -1,17 +1,17 @@
-version:              "3"
+version: "3"
 services:
   bitcoind:
-      build:          ./bitcoin-docker
-      command:        -testnet -printtoconsole -prune=600 -disablewallet -dbcache=2000 -rpcallowip=0.0.0.0/0
-      container_name: stellar-bitcoin
-      volumes:
-        - ~/stellar/bitcoin:/root
-      restart:        unless-stopped
-      environment:
-        RPCUSER:      user
-        RPCPASSWORD:  password
-      ports:
-        - "18332:18332"
-        - "18333:18333"
-        - "8332:8332"
-        - "8333:8333"
+    build: .
+    command: -testnet -printtoconsole -prune=600 -disablewallet -dbcache=2000 -rpcallowip=0.0.0.0/0
+    container_name: stellar-bitcoin
+    volumes:
+      - ~/stellar/bitcoin:/root
+    restart: unless-stopped
+    environment:
+      RPCUSER: user
+      RPCPASSWORD: password
+    ports:
+      - "18332:18332"
+      - "18333:18333"
+      - "8332:8332"
+      - "8333:8333"
