@@ -1,0 +1,13 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ["pull", "us.gcr.io/$PROJECT_ID/bitcoin:latest"]
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - "build"
+      - "--cache-from=us.gcr.io/$PROJECT_ID/bitcoin:latest"
+      - "--file=Dockerfile"
+      - "--tag=us.gcr.io/$PROJECT_ID/bitcoin:$REVISION_ID"
+      - "--tag=us.gcr.io/$PROJECT_ID/bitcoin:latest"
+      - "."
+images:
+  - 'us.gcr.io/$PROJECT_ID/bitcoin'
