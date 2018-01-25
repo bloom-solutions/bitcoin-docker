@@ -2,7 +2,10 @@ FROM ubuntu:16.04
 
 RUN apt-get update -qq && \
   apt-get upgrade -y && \
-  apt-get install build-essential curl -y
+  apt-get install build-essential curl -y && \
+  # Keep the image small:
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/*
 
 ENV BITCOIN_VERSION=0.15.1
 ENV BITCOIN_FILE_NAME=bitcoin-$BITCOIN_VERSION-x86_64-linux-gnu.tar.gz
