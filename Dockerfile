@@ -7,7 +7,7 @@ RUN apt-get update -qq && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
 
-ENV BITCOIN_VERSION=0.16.3
+ENV BITCOIN_VERSION=0.17.1
 ENV BITCOIN_FILE_NAME=bitcoin-$BITCOIN_VERSION-x86_64-linux-gnu.tar.gz
 ENV BITCOIN_URL=https://bitcoin.org/bin/bitcoin-core-$BITCOIN_VERSION/$BITCOIN_FILE_NAME
 
